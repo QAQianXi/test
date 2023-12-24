@@ -9,4 +9,6 @@ public interface UserService {
     User findByUserName(String username);
     //注册用户
     void register(String username, String password);
+
+    void updateAvatar(String avatarUrl);
 }

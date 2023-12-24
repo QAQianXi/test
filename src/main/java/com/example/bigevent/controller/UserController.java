@@ -63,8 +63,13 @@ public class UserController {
         return Result.success(user);
     }
     @PutMapping("/update")
-    public Result update(@RequestBody User user){
-        UserService.update(user);
+    public Result update(@RequestBody @Validated User user){
+        userService.update(user);
+        return Result.success();
+    }
+    @PatchMapping("updateAvatar")
+    public Result updateAvatar(@RequestParam String avatarUrl){
+        userService.updateAvatar(avatarUrl);
         return Result.success();
     }
 }

@@ -13,6 +13,8 @@ public interface UserMapper {
 
     @Insert("insert into user(username,password,create_time,update_time)"+"value(#{username},#{md5password},now(),now())")
     void addNewUser(String username, String md5password);
-    @Update("update user ser nickname = #{nickname},email=#{email},update_time=#{update_time} where id=#{id}")
+    @Update("update user set nickname=#{nickname},email=#{email},update_time=now() where id=#{id}")
     void update(User user);
+    @Update("update user set user_pic=#{avatarUrl},update_time=#{updateTime} where id=#{userid}")
+    void updateAvatar(String avatarUrl, Integer userid);
 }
